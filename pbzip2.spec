@@ -5,13 +5,13 @@ Version:	1.0.2
 Release:	0.9
 License:	BSD
 Group:		Applications/Archiving
-URL:		http://www.compression.ca/pbzip2/
-BuildRequires:	bzip2-devel
-BuildRequires:	sed >= 4.0
-BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 Source0:	http://www.compression.ca/pbzip2/%{name}-%{version}.tar.gz
 # Source0-md5:	7c959f0554695bc484865b938e791aaf
 Patch0:		%{name}-optflags.patch
+URL:		http://www.compression.ca/pbzip2/
+BuildRequires:	bzip2-devel
+BuildRequires:	libstdc++-devel
+BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
 PBZIP2 is a parallel implementation of the bzip2 block-sorting file
@@ -35,7 +35,7 @@ pomocy bzip2).
 
 %build
 %{__make} \
-	CC=%{__cxx} \
+	CC="%{__cxx}" \
 	OPTFLAGS="%{rpmcxxflags}"
 
 %install
