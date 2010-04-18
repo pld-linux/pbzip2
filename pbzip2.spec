@@ -1,3 +1,6 @@
+# TODO
+# - check minimum gcc ver:
+#   on ac gcc 3.3.6: - BZ2StreamScanner.cpp:(.text+0x219): undefined reference to `std::char_traits<unsigned char>::length(unsigned char const*)'
 Summary:	Parallel implementation of bzip2
 Summary(pl.UTF-8):	Zrównoleglona implementacja bzip2
 Name:		pbzip2
@@ -23,10 +26,10 @@ decompressed with bzip2).
 PBZIP2 to zrównoleglona implementacja algorytmu kompresji plików
 metodą sortowania bloków sobzip2, wykorzystująca mechanizm wątków
 pthread i osiągająca prawie liniowe przyspieszenie na maszynach
-wieloprocesorowych. Wyjście z tego programu jest w pełni
-kompatybilne z formatem bzip2 w wersji 1.0.2 lub nowszej (tzn.
-wszystko skompresowane programem pbzip2 może być rozpakowane przy
-pomocy bzip2).
+wieloprocesorowych. Wyjście z tego programu jest w pełni kompatybilne
+z formatem bzip2 w wersji 1.0.2 lub nowszej (tzn. wszystko
+skompresowane programem pbzip2 może być rozpakowane przy pomocy
+bzip2).
 
 %prep
 %setup -q
@@ -38,10 +41,10 @@ pomocy bzip2).
 
 %install
 rm -rf $RPM_BUILD_ROOT
-
-install -D %{name} $RPM_BUILD_ROOT%{_bindir}/%{name}
-install -D %{name}.1 $RPM_BUILD_ROOT%{_mandir}/man1/%{name}.1
+install -d $RPM_BUILD_ROOT{%{_bindir},%{_mandir}/man1}
+install -p %{name} $RPM_BUILD_ROOT%{_bindir}
 ln -sf %{name} $RPM_BUILD_ROOT%{_bindir}/pbunzip2
+cp -a %{name}.1 $RPM_BUILD_ROOT%{_mandir}/man1
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -49,6 +52,6 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog COPYING README
-%attr(755,root,root) %{_bindir}/%{name}
+%attr(755,root,root) %{_bindir}/pbzip2
 %attr(755,root,root) %{_bindir}/pbunzip2
-%{_mandir}/man1/*
+%{_mandir}/man1/pbzip2.1*
