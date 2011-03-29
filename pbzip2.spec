@@ -4,12 +4,12 @@
 Summary:	Parallel implementation of bzip2
 Summary(pl.UTF-8):	Zrównoleglona implementacja bzip2
 Name:		pbzip2
-Version:	1.1.2
+Version:	1.1.3
 Release:	1
 License:	BSD
 Group:		Applications/Archiving
 Source0:	http://www.compression.ca/pbzip2/%{name}-%{version}.tar.gz
-# Source0-md5:	1661d49b4aa37729ef5dde088fcf7bea
+# Source0-md5:	beb27a8055723f5f84364182d137ed1a
 URL:		http://www.compression.ca/pbzip2/
 BuildRequires:	bzip2-devel
 BuildRequires:	libstdc++-devel
