@@ -5,7 +5,7 @@ Summary:	Parallel implementation of bzip2
 Summary(pl.UTF-8):	Zrównoleglona implementacja bzip2
 Name:		pbzip2
 Version:	1.1.13
-Release:	1
+Release:	2
 License:	BSD
 Group:		Applications/Archiving
 Source0:	https://launchpad.net/pbzip2/1.1/%{version}/+download/%{name}-%{version}.tar.gz
