@@ -5,7 +5,7 @@ Summary:	Parallel implementation of bzip2
 Summary(pl.UTF-8):	Zrównoleglona implementacja bzip2
 Name:		pbzip2
 Version:	1.1.13
-Release:	2
+Release:	3
 License:	BSD
 Group:		Applications/Archiving
 Source0:	https://launchpad.net/pbzip2/1.1/%{version}/+download/%{name}-%{version}.tar.gz
@@ -37,7 +37,7 @@ bzip2).
 %build
 %{__make} \
 	CXX="%{__cxx}" \
-	OPTFLAGS="%{rpmcxxflags}"
+	CXXFLAGS="%{rpmcxxflags} -D_LARGEFILE64_SOURCE -D_FILE_OFFSET_BITS=64 -DUSE_STACKSIZE_CUSTOMIZATION -pthread -D_POSIX_PTHREAD_SEMANTICS"
 
 %install
 rm -rf $RPM_BUILD_ROOT
